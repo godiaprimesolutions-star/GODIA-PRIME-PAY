@@ -1,245 +1,580 @@
+HTML
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#087b48">
-  <meta name="description" content="GODIA PRIME PAY — M-Pesa payment collection">
-  <title>GODIA PRIME PAY</title>
-  <style>
-    :root{--green:#087b48;--green2:#0aa765;--ink:#14251d;--muted:#718078;--line:#e5eee8;--bg:#f4f8f5;--white:#fff;--amber:#a66a00;--shadow:0 12px 34px rgba(10,70,42,.08)}
-    *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
-    button,input{font:inherit} button{cursor:pointer}
-    .app{max-width:540px;margin:auto;min-height:100vh;background:var(--bg);padding-bottom:34px}
-    header{background:linear-gradient(135deg,#05683d,#0b9b5b);color:white;padding:22px 20px 25px;border-radius:0 0 26px 26px;box-shadow:var(--shadow)}
-    .top{display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{display:flex;align-items:center;gap:11px}
-    .logo{width:43px;height:43px;border-radius:14px;background:#ffffff20;border:1px solid #ffffff55;display:grid;place-items:center;font-weight:900;font-size:20px}
-    .brand h1{font-size:17px;letter-spacing:.7px;margin:0}.brand p{margin:3px 0 0;color:#d7f6e6;font-size:11px;letter-spacing:1.2px}
-    .secure{font-size:11px;background:#ffffff20;padding:7px 10px;border-radius:30px;white-space:nowrap}
-    .header-actions{display:flex;align-items:center;gap:8px}
-    .icon-btn{position:relative;width:38px;height:38px;border:1px solid #ffffff55;border-radius:13px;background:#ffffff1c;color:white;font-size:18px}
-    .dot{position:absolute;right:7px;top:6px;width:7px;height:7px;background:#ffd166;border:1px solid #087b48;border-radius:50%}
-    .welcome{margin-top:23px}.welcome small{color:#d8f4e5}.welcome h2{font-size:25px;line-height:1.15;margin:6px 0}.welcome p{font-size:13px;color:#d9f4e5;margin:0}
-    .featured{margin-top:17px;background:linear-gradient(110deg,#fff3cf,#ffe2a0);color:#60420b;border-radius:16px;padding:12px 14px;display:flex;align-items:center;gap:11px;box-shadow:0 8px 20px #063d251c}
-    .featured .star{width:34px;height:34px;border-radius:11px;background:#ffffffa8;display:grid;place-items:center;font-size:19px}
-    .featured strong{display:block;font-size:12px}.featured span{display:block;font-size:10px;margin-top:3px;line-height:1.35;color:#795b20}
-    main{padding:18px 16px}.section-title{font-size:15px;font-weight:800;margin:2px 0 12px}
-    .methods{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:20px}
-    .method{background:white;border:1px solid var(--line);border-radius:17px;padding:15px 13px;text-align:left;box-shadow:0 5px 18px rgba(10,70,42,.035);min-height:112px}
-    .method .ico{width:35px;height:35px;border-radius:11px;background:#e8f7ee;display:grid;place-items:center;color:var(--green);font-size:19px;margin-bottom:10px}
-    .method strong{display:block;font-size:14px}.method span{display:block;font-size:11px;color:var(--muted);margin-top:4px;line-height:1.35}
-    .card{background:white;border:1px solid var(--line);border-radius:19px;padding:17px;margin-bottom:15px;box-shadow:0 5px 20px rgba(10,70,42,.035)}
-    label{display:block;font-size:12px;font-weight:700;color:#53635a;margin:14px 0 7px}
-    input{width:100%;border:1px solid #dce8e0;border-radius:12px;padding:14px 13px;background:#fbfdfb;color:var(--ink);outline:none}
-    input:focus{border-color:var(--green);box-shadow:0 0 0 3px #087b4818}
-    .input-row{display:flex;gap:8px}.input-row input{min-width:0;flex:1}
-    .small-btn{border:1px solid #cfe5d7;background:#eff9f2;color:var(--green);border-radius:12px;padding:0 12px;font-weight:750;font-size:12px}
-    .amount-wrap{position:relative}.amount-wrap b{position:absolute;left:13px;top:14px;color:#64746b;font-size:13px}.amount-wrap input{padding-left:55px;font-size:20px;font-weight:800}
-    .primary{width:100%;border:0;border-radius:13px;background:linear-gradient(135deg,var(--green),var(--green2));color:white;padding:15px;font-weight:800;margin-top:17px;box-shadow:0 8px 18px #087b4828}
-    .secondary{width:100%;border:1px solid #cfe5d7;border-radius:13px;background:#eff9f2;color:var(--green);padding:14px;font-weight:800;margin-top:10px}
-    .hint{font-size:11px;color:var(--muted);line-height:1.5;margin:10px 1px 0}
-    .till{display:flex;justify-content:space-between;align-items:center;background:#eaf7ef;border:1px solid #d6eddf;border-radius:14px;padding:12px 13px;margin-top:15px}
-    .till span{font-size:11px;color:#567363}.till strong{font-size:18px;color:var(--green);letter-spacing:1px}
-    .status{display:none;border-radius:12px;padding:12px;font-size:12px;line-height:1.45;margin-top:12px;background:#fff5df;color:#805400;border:1px solid #f4dfae}
-    .notification-panel{display:none;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;margin:0 0 15px;box-shadow:var(--shadow)}
-    .notification-panel.show{display:block}
-    .notification-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
-    .notification-head strong{font-size:13px}
-    .notification-head button{border:0;background:transparent;color:var(--green);font-size:11px;font-weight:800}
-    .notification-item{padding:9px 0;border-top:1px solid #edf2ee;font-size:11px;line-height:1.45;color:#58675f}
-    .notification-item b{display:block;color:var(--ink);font-size:12px;margin-bottom:2px}
-    .offline{display:flex;gap:9px;align-items:flex-start;background:#fff8e9;border:1px solid #f3e2b8;color:#795500;padding:12px;border-radius:13px;font-size:11px;line-height:1.45;margin:0 0 16px}
-    .offline b{display:block;font-size:12px;margin-bottom:2px}
-    .list{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid #edf2ee}.list:last-child{border-bottom:0}
-    .avatar{width:36px;height:36px;border-radius:12px;background:#e8f7ee;color:var(--green);display:grid;place-items:center;font-weight:800}
-    .person{display:flex;align-items:center;gap:10px;min-width:0}.person strong{font-size:12px;display:block}.person small{font-size:10px;color:var(--muted)}
-    .empty{color:var(--muted);font-size:12px;text-align:center;padding:18px 5px}
-    .nav{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 0 15px}.nav button{border:1px solid var(--line);background:white;border-radius:12px;padding:10px 5px;color:#5b6b62;font-size:11px;font-weight:700}.nav button.active{background:#eaf7ef;color:var(--green);border-color:#cce8d6}
-    .hidden{display:none!important} footer{text-align:center;padding:10px 20px;color:#89968f;font-size:10px}
-    .modal{position:fixed;inset:0;background:#10251bcc;display:none;align-items:flex-end;justify-content:center;padding:14px;z-index:5}.modal.show{display:flex}.sheet{background:white;border-radius:22px 22px 18px 18px;padding:20px;width:100%;max-width:510px}.sheet h3{margin:0 0 5px}.sheet p{font-size:12px;color:var(--muted);line-height:1.5}
-    @media(min-width:600px){body{padding:20px 0}.app{border-radius:28px;overflow:hidden;box-shadow:0 20px 60px #12332218;min-height:calc(100vh - 40px)}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#071426">
+<title>GODIA PRIME PAY</title>
+<style>
+:root{
+  --bg:#071426;--panel:#10233d;--panel2:#142b49;
+  --blue:#278cff;--cyan:#23d5e8;--purple:#9875ff;
+  --green:#20d6a0;--red:#ff667d;--text:#f3f7ff;
+  --muted:#9fb2ca;--border:rgba(255,255,255,.1)
+}
+*{box-sizing:border-box}
+body{
+  margin:0;min-height:100vh;color:var(--text);
+  background:radial-gradient(circle at top right,#183b65,#071426 48%,#050d19);
+  font-family:Arial,Helvetica,sans-serif
+}
+button,input{font:inherit}
+button{cursor:pointer}
+.hidden{display:none!important}
+.app{max-width:1100px;margin:auto;padding:16px}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0 22px}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{
+  width:48px;height:48px;border-radius:15px;display:grid;place-items:center;
+  font-weight:900;font-size:19px;color:white;
+  background:linear-gradient(135deg,var(--blue),var(--purple));
+  box-shadow:0 8px 30px #278cff55
+}
+.brand h1{font-size:19px;margin:0;letter-spacing:1px}
+.brand small{display:block;color:var(--muted);margin-top:5px}
+.status{font-size:10px;color:var(--green);border:1px solid #20d6a055;background:#20d6a014;padding:8px 10px;border-radius:20px}
+.panel{
+  background:linear-gradient(145deg,#122944ee,#0d1d33f5);
+  border:1px solid var(--border);border-radius:20px;padding:20px;
+  box-shadow:0 15px 45px #0003
+}
+.login-wrap{max-width:440px;margin:7vh auto}
+.login-top{text-align:center;margin-bottom:24px}
+.login-top .logo{margin:auto;width:66px;height:66px;font-size:25px}
+.login-top h2{margin:18px 0 8px;font-size:25px}
+.login-top p,.muted{color:var(--muted);line-height:1.5;font-size:13px}
+h2,h3{margin-top:0}
+label{display:block;color:#c3d2e5;font-size:13px;margin:15px 0 8px}
+input{
+  width:100%;padding:14px;border-radius:12px;
+  border:1px solid #ffffff20;background:#071629;color:white;outline:none
+}
+input:focus{border-color:var(--blue);box-shadow:0 0 0 3px #278cff22}
+.btn{
+  border:0;border-radius:12px;padding:14px 17px;font-weight:700;
+  color:white;background:linear-gradient(100deg,var(--blue),#526dff)
+}
+.btn:hover{filter:brightness(1.12)}
+.btn:disabled{opacity:.55;cursor:not-allowed}
+.btn.full{width:100%;margin-top:18px}
+.btn.secondary{background:#ffffff12;border:1px solid var(--border)}
+.btn.green{background:linear-gradient(100deg,#0eaa80,#20d6a0)}
+.btn.red{background:#ff667d20;color:#ff9cac;border:1px solid #ff667d40}
+.message{font-size:13px;line-height:1.5;margin-top:13px;color:var(--muted);overflow-wrap:anywhere}
+.message.error{color:#ff899a}
+.message.success{color:var(--green)}
+.hero{
+  background:linear-gradient(115deg,#14549b,#4436a5 65%,#173e70);
+  padding:23px;border-radius:20px;margin-bottom:18px;
+  box-shadow:0 12px 35px #278cff22
+}
+.hero small{color:#d5e7ff}
+.hero h2{font-size:25px;margin:10px 0}
+.hero p{margin:0;color:#d3e5ff;font-size:13px;line-height:1.5}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}
+.stat{padding:16px;background:#ffffff09;border:1px solid var(--border);border-radius:15px}
+.stat small{color:var(--muted);font-size:11px}
+.stat strong{display:block;font-size:20px;margin-top:9px}
+.tabs{display:flex;gap:8px;overflow-x:auto;margin:18px 0}
+.tab{border:1px solid var(--border);border-radius:11px;padding:11px 15px;color:#b9cbe0;background:#ffffff08;white-space:nowrap}
+.tab.active{background:#278cff25;color:white;border-color:#278cff88}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.section-title{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.section-title h3{margin:0}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}
+.actions .btn{flex:1}
+.list{margin-top:15px}
+.item{padding:14px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;gap:12px;align-items:center}
+.item:last-child{border-bottom:0}
+.item strong{display:block;font-size:14px}
+.item small{display:block;color:var(--muted);font-size:12px;margin-top:5px}
+.amount{font-weight:800;white-space:nowrap}
+.badge{display:inline-block;padding:5px 8px;border-radius:20px;font-size:10px;background:#ffffff12;color:#d7e4f5}
+.badge.paid{background:#20d6a022;color:var(--green)}
+.badge.failed{background:#ff667d20;color:#ff91a1}
+.badge.pending{background:#ffcf5c20;color:#ffdb85}
+.notice{border:1px solid #23d5e844;background:#23d5e80d;color:#bceef3;border-radius:12px;padding:12px;font-size:12px;line-height:1.5;margin-top:14px}
+.empty{text-align:center;padding:28px 10px;color:var(--muted);font-size:13px}
+footer{text-align:center;color:#758ba6;font-size:11px;padding:28px 10px}
+@media(max-width:700px){
+ .app{padding:13px}.grid{grid-template-columns:1fr}
+ .stats{grid-template-columns:1fr 1fr}
+ .stats .stat:last-child{grid-column:span 2}
+ .hero h2{font-size:22px}
+}
+</style>
 </head>
 <body>
 <div class="app">
-  <header>
-    <div class="top">
-      <div class="brand"><div class="logo">G</div><div><h1>GODIA PRIME PAY</h1><p>SMART PAYMENT COLLECTION</p></div></div>
-      <div class="header-actions">
-        <button class="icon-btn" id="notificationToggle" aria-label="Open notifications" title="Notifications">♧<span class="dot" id="notificationDot"></span></button>
-        <div class="secure">● Secure workspace</div>
-      </div>
-    </div>
-    <div class="welcome"><small>Welcome</small><h2>Collect payments<br>the smarter way.</h2><p>Daraja STK Push and Safaricom M-PESA USSD assistance.</p></div>
-    <div class="featured"><div class="star">★</div><div><strong>YOUR FAVOURITE PAYMENT PARTNER</strong><span>Fast collection tools, customer shortcuts and payment activity in one place.</span></div></div>
-  </header>
-  <main>
-    <div class="notification-panel" id="notificationPanel" aria-live="polite">
-      <div class="notification-head"><strong>Notifications</strong><button id="clearNotifications">Mark as read</button></div>
-      <div id="notificationItems"><div class="notification-item"><b>Welcome to GODIA PRIME PAY</b>Your payment workspace is ready. Connect the secure backend to enable live STK Push and verified payment alerts.</div></div>
-    </div>
-    <div class="offline"><span>●</span><div><b>Offline-ready interface</b>Saved customer details can be viewed offline. Sending STK Push and confirming payments require an internet connection.</div></div>
-    <div class="section-title">Choose payment method</div>
-    <div class="methods">
-      <button class="method" id="chooseStk"><div class="ico">↗</div><strong>Daraja STK Push</strong><span>Send a PIN prompt to the customer's phone when online.</span></button>
-      <button class="method" id="chooseUssd"><div class="ico">⌨</div><strong>M-PESA USSD</strong><span>Open the M-PESA menu on this phone without data bundles.</span></button>
-    </div>
 
-    <div class="nav">
-      <button class="active" data-tab="collect">Collect</button>
-      <button data-tab="customers">Customers</button>
-      <button data-tab="history">History</button>
+<header>
+  <div class="brand">
+    <div class="logo">GP</div>
+    <div>
+      <h1>GODIA PRIME PAY</h1>
+      <small>Private financial workspace</small>
     </div>
-
-    <section id="collect">
-      <div class="card">
-        <div class="section-title">New payment request</div>
-        <label for="customerName">Customer name (optional)</label>
-        <input id="customerName" placeholder="Enter customer name" autocomplete="name">
-        <label for="phone">Safaricom phone number</label>
-        <div class="input-row"><input id="phone" placeholder="07XXXXXXXX or 2547XXXXXXXX" inputmode="tel"><button class="small-btn" id="saveCustomer">Save customer</button></div>
-        <label for="amount">Amount</label>
-        <div class="amount-wrap"><b>KES</b><input id="amount" type="number" min="1" step="1" placeholder="0.00" inputmode="decimal"></div>
-        <label for="reference">Payment description (optional)</label>
-        <input id="reference" placeholder="e.g. Goods, invoice or order">
-        <button class="primary" id="stkButton">REQUEST STK PUSH</button>
-        <button class="secondary" id="ussdButton">OPEN M-PESA USSD MENU</button>
-        <div class="status" id="notice" role="status"></div>
-        <div class="till"><div><span>Configured Buy Goods Till</span><br><strong>1692851</strong></div><span>Merchant destination</span></div>
-        <p class="hint">The Till number is displayed for reference. A live STK Push requires your Daraja production configuration and a secure backend. Never enter or share an M-PESA PIN in this app.</p>
-      </div>
-    </section>
-
-    <section id="customers" class="hidden">
-      <div class="card"><div class="section-title">Saved customers</div><div id="customerList" class="empty">No customers saved yet.</div></div>
-    </section>
-    <section id="history" class="hidden">
-      <div class="card"><div class="section-title">Local activity</div><div id="historyList" class="empty">No payment activity recorded yet.</div><p class="hint">This is a local activity log, not proof of payment. Only verified Safaricom callback or reconciliation records should be marked successful.</p></div>
-    </section>
-  </main>
-  <footer>GODIA PRIME PAY · Payment requests are subject to Safaricom services and connectivity.</footer>
-</div>
-
-<div class="modal" id="ussdModal" role="dialog" aria-modal="true" aria-labelledby="ussdTitle">
-  <div class="sheet">
-    <h3 id="ussdTitle">Continue with M-PESA</h3>
-    <p>This opens the M-PESA USSD menu on this phone. USSD does not need mobile data, but it uses Safaricom cellular service. The customer must complete and authorize the payment themselves.</p>
-    <button class="primary" id="openDialer">OPEN *334#</button>
-    <button class="secondary" id="closeModal">Cancel</button>
   </div>
+  <div class="status" id="connectionStatus">OWNER LOGIN</div>
+</header>
+
+<section id="loginScreen" class="login-wrap panel">
+  <div class="login-top">
+    <div class="logo">GP</div>
+    <h2>Welcome Back</h2>
+    <p>Sign in to access your private GODIA PRIME PAY workspace.</p>
+  </div>
+  <form id="loginForm">
+    <label for="ownerPassword">Owner password</label>
+    <input id="ownerPassword" type="password" autocomplete="current-password"
+      placeholder="Enter your owner password" required>
+    <button class="btn full" id="loginButton" type="submit">SECURE LOGIN</button>
+  </form>
+  <div id="loginMessage" class="message" role="status"></div>
+  <div class="notice">Owner access only. Your password is checked by the Worker. It is not saved in this page.</div>
+</section>
+
+<main id="dashboard" class="hidden">
+  <section class="hero">
+    <small>GODIA PRIME SOLUTIONS</small>
+    <h2>Your money. Your records. Your control.</h2>
+    <p>Manage M-Pesa collections, customer details and payment records from one private workspace.</p>
+  </section>
+
+  <div class="stats">
+    <div class="stat"><small>Recorded transactions</small><strong id="totalTransactions">0</strong></div>
+    <div class="stat"><small>Confirmed payments</small><strong id="paidTransactions">0</strong></div>
+    <div class="stat"><small>Confirmed amount</small><strong id="paidAmount">KSh 0</strong></div>
+  </div>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="collect">Collect Payment</button>
+    <button class="tab" data-tab="customers">Customers</button>
+    <button class="tab" data-tab="history">Payment History</button>
+  </nav>
+
+  <section id="collectPanel" class="tab-panel">
+    <div class="grid">
+      <div class="panel">
+        <div class="section-title"><h3>STK Push</h3><span class="badge">M-PESA</span></div>
+        <p class="muted">Send a payment request to a customer's phone. The customer must approve it on their handset.</p>
+        <form id="paymentForm">
+          <label for="customerName">Customer name (optional)</label>
+          <input id="customerName" placeholder="Customer name">
+          <label for="phone">M-Pesa phone number</label>
+          <input id="phone" type="tel" inputmode="tel" placeholder="07XXXXXXXX" required>
+          <div class="field-row">
+            <div>
+              <label for="amount">Amount (KSh)</label>
+              <input id="amount" type="number" min="1" max="250000" step="1" placeholder="100" required>
+            </div>
+            <div>
+              <label for="reference">Reference</label>
+              <input id="reference" maxlength="30" placeholder="Payment">
+            </div>
+          </div>
+          <button class="btn green full" id="payButton" type="submit">SEND M-PESA STK PUSH</button>
+        </form>
+        <div id="paymentMessage" class="message" role="status"></div>
+        <div class="notice">
+          Buy Goods Till: <strong>1692851</strong><br>
+          Shortcode: <strong>1222123</strong><br>
+          Transaction type: CustomerBuyGoodsOnline
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>Payment information</h3>
+        <p class="muted">A successful STK request means Safaricom accepted the request. It does not mean the customer has paid.</p>
+        <div class="item">
+          <div><strong>Payment confirmation</strong><small>Verified through Safaricom callback</small></div>
+          <span class="badge paid">CALLBACK</span>
+        </div>
+        <div class="item">
+          <div><strong>Payment records</strong><small>Stored in your connected D1 database</small></div>
+          <span class="badge">D1</span>
+        </div>
+        <div class="item">
+          <div><strong>Owner access</strong><small>Private authenticated workspace</small></div>
+          <span class="badge paid">OWNER</span>
+        </div>
+        <div class="notice">Do not treat an STK request message or phone screenshot as proof of payment. Confirm the transaction status and M-Pesa receipt.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="customersPanel" class="tab-panel hidden">
+    <div class="grid">
+      <div class="panel">
+        <h3>Customer records</h3>
+        <p class="muted">Save customer contact details for quicker payment requests on this device.</p>
+        <form id="customerForm">
+          <label for="saveName">Customer name</label>
+          <input id="saveName" required placeholder="Full name">
+          <label for="savePhone">Phone number</label>
+          <input id="savePhone" required inputmode="tel" placeholder="07XXXXXXXX">
+          <button class="btn full" type="submit">SAVE CUSTOMER</button>
+        </form>
+        <div id="customerMessage" class="message"></div>
+      </div>
+      <div class="panel">
+        <h3>Saved customers</h3>
+        <div id="customerList" class="list"><div class="empty">No customers saved yet.</div></div>
+        <p class="muted">These contacts are stored locally in this browser. They are not yet synchronised to D1.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="historyPanel" class="tab-panel hidden">
+    <div class="panel">
+      <div class="section-title">
+        <div><h3>Payment history</h3><p class="muted">Transactions retrieved from your Worker and D1 database.</p></div>
+        <button class="btn secondary" id="refreshHistory" type="button">REFRESH</button>
+      </div>
+      <div id="historyMessage" class="message"></div>
+      <div id="historyList" class="list"><div class="empty">Loading payment records...</div></div>
+    </div>
+  </section>
+
+  <div class="actions">
+    <button class="btn secondary" id="refreshAll" type="button">REFRESH DASHBOARD</button>
+    <button class="btn red" id="logoutButton" type="button">LOG OUT</button>
+  </div>
+</main>
+
+<footer>
+  GODIA PRIME PAY · Private Owner Workspace<br>
+  Secure payments depend on configured production services.
+</footer>
 </div>
 
 <script>
-(() => {
-  const $ = id => document.getElementById(id);
-  const read = key => { try { return JSON.parse(localStorage.getItem(key) || "[]"); } catch { return []; } };
-  const write = (key, value) => { try { localStorage.setItem(key, JSON.stringify(value)); } catch {} };
-  let customers = read("gpp_customers"), activity = read("gpp_activity");
-  const normalizePhone = value => {
-    let n = value.replace(/[^\d+]/g, "");
-    if (n.startsWith("+")) n = n.slice(1);
-    if (n.startsWith("0")) n = "254" + n.slice(1);
-    return n;
-  };
-  const validPhone = n => /^254(7\d{8}|1\d{8})$/.test(n);
-  let notifications = read("gpp_notifications");
-  if (!notifications.length) {
-    notifications = [{title:"Welcome to GODIA PRIME PAY", body:"Your payment workspace is ready. Live STK Push and verified payment alerts will be enabled after backend integration.", when:new Date().toLocaleString(), unread:true}];
-    write("gpp_notifications", notifications);
-  }
-  const renderNotifications = () => {
-    const unread = notifications.some(n => n.unread);
-    $("notificationDot").style.display = unread ? "block" : "none";
-    $("notificationItems").innerHTML = "";
-    if (!notifications.length) {
-      $("notificationItems").innerHTML = '<div class="notification-item">You are all caught up. New payment and account alerts will appear here.</div>';
-      return;
+"use strict";
+
+const $ = id => document.getElementById(id);
+const money = value => "KSh " + Number(value || 0).toLocaleString("en-KE");
+
+async function api(path, options = {}) {
+  const response = await fetch(path, {
+    ...options,
+    credentials: "same-origin",
+    headers: {
+      ...(options.body ? {"Content-Type":"application/json"} : {}),
+      ...(options.headers || {})
     }
-    notifications.slice().reverse().forEach(n => {
-      const item = document.createElement("div"); item.className = "notification-item";
-      const title = document.createElement("b"); title.textContent = n.title;
-      const body = document.createElement("span"); body.textContent = n.body + (n.when ? " · " + n.when : "");
-      item.append(title, body); $("notificationItems").appendChild(item);
+  });
+
+  let data = {};
+  try { data = await response.json(); } catch (_) {}
+
+  if (!response.ok || data.success === false || data.ok === false) {
+    throw new Error(data.error || data.message || `Request failed (${response.status})`);
+  }
+  return data;
+}
+
+function showMessage(id, text, type = "") {
+  $(id).textContent = text;
+  $(id).className = "message " + type;
+}
+
+function showLogin() {
+  $("dashboard").classList.add("hidden");
+  $("loginScreen").classList.remove("hidden");
+  $("connectionStatus").textContent = "OWNER LOGIN";
+}
+
+function showDashboard() {
+  $("loginScreen").classList.add("hidden");
+  $("dashboard").classList.remove("hidden");
+  $("connectionStatus").textContent = "PRIVATE · CONNECTED";
+}
+
+function switchTab(name) {
+  document.querySelectorAll(".tab").forEach(button => {
+    button.classList.toggle("active", button.dataset.tab === name);
+  });
+  document.querySelectorAll(".tab-panel").forEach(panel => panel.classList.add("hidden"));
+  $(name + "Panel").classList.remove("hidden");
+  if (name === "customers") renderCustomers();
+  if (name === "history") loadHistory();
+}
+
+document.querySelectorAll(".tab").forEach(button => {
+  button.addEventListener("click", () => switchTab(button.dataset.tab));
+});
+
+async function checkSession() {
+  try {
+    await api("/api/auth/me");
+    showDashboard();
+    await loadHistory();
+  } catch (_) {
+    showLogin();
+  }
+}
+
+$("loginForm").addEventListener("submit", async event => {
+  event.preventDefault();
+  const button = $("loginButton");
+  const password = $("ownerPassword").value;
+  if (!password) return;
+
+  button.disabled = true;
+  button.textContent = "SIGNING IN...";
+  showMessage("loginMessage", "Checking owner credentials...");
+
+  try {
+    await api("/api/auth/login", {
+      method: "POST",
+      body: JSON.stringify({password})
     });
-  };
-  $("notificationToggle").onclick = () => {
-    $("notificationPanel").classList.toggle("show");
-    renderNotifications();
-  };
-  $("clearNotifications").onclick = () => {
-    notifications = notifications.map(n => ({...n, unread:false}));
-    write("gpp_notifications", notifications); renderNotifications();
-  };
-  const addNotification = (title, body) => {
-    notifications.push({title, body, when:new Date().toLocaleString(), unread:true});
-    write("gpp_notifications", notifications); renderNotifications();
-  };
-  const notice = (message, kind="warn") => {
-    $("notice").textContent = message;
-    $("notice").style.display = "block";
-    $("notice").style.background = kind === "ok" ? "#eaf7ef" : "#fff5df";
-    $("notice").style.color = kind === "ok" ? "#08683e" : "#805400";
-  };
-  const showTab = tab => {
-    ["collect","customers","history"].forEach(id => $(id).classList.toggle("hidden", id !== tab));
-    document.querySelectorAll("[data-tab]").forEach(b => b.classList.toggle("active", b.dataset.tab === tab));
-    render();
-  };
-  document.querySelectorAll("[data-tab]").forEach(b => b.addEventListener("click", () => showTab(b.dataset.tab)));
-  const render = () => {
-    $("customerList").innerHTML = customers.length ? "" : '<div class="empty">No customers saved yet.</div>';
-    customers.forEach((c,i) => {
-      const row = document.createElement("div"); row.className = "list";
-      row.innerHTML = '<div class="person"><div class="avatar">👤</div><div><strong></strong><small></small></div></div><button class="small-btn">Select</button>';
-      row.querySelector("strong").textContent = c.name || "Customer";
-      row.querySelector("small").textContent = c.phone;
-      row.querySelector("button").onclick = () => { $("customerName").value = c.name || ""; $("phone").value = c.phone; showTab("collect"); };
-      $("customerList").appendChild(row);
+    $("ownerPassword").value = "";
+    showMessage("loginMessage", "");
+    showDashboard();
+    await loadHistory();
+  } catch (error) {
+    showMessage("loginMessage", error.message || "Login failed. Check your password.", "error");
+  } finally {
+    button.disabled = false;
+    button.textContent = "SECURE LOGIN";
+  }
+});
+
+$("logoutButton").addEventListener("click", async () => {
+  try {
+    await api("/api/auth/logout", {method:"POST"});
+  } catch (_) {}
+  showLogin();
+  showMessage("loginMessage", "You have been logged out.", "success");
+});
+
+$("paymentForm").addEventListener("submit", async event => {
+  event.preventDefault();
+  const button = $("payButton");
+  const phone = $("phone").value.trim();
+  const amount = Number($("amount").value);
+  const reference = $("reference").value.trim() || "Payment";
+
+  if (!phone || !Number.isFinite(amount) || amount < 1 || amount > 250000) {
+    showMessage("paymentMessage", "Enter a valid phone number and amount between KSh 1 and KSh 250,000.", "error");
+    return;
+  }
+
+  button.disabled = true;
+  button.textContent = "SENDING REQUEST...";
+  showMessage("paymentMessage", "Contacting Safaricom production service...");
+
+  try {
+    const result = await api("/api/mpesa/stk-push", {
+      method: "POST",
+      body: JSON.stringify({phone, amount, reference})
     });
-    $("historyList").innerHTML = activity.length ? "" : '<div class="empty">No payment activity recorded yet.</div>';
-    activity.slice().reverse().forEach(a => {
-      const row = document.createElement("div"); row.className = "list";
-      row.innerHTML = '<div class="person"><div class="avatar">₭</div><div><strong></strong><small></small></div></div><b></b>';
-      row.querySelector("strong").textContent = a.label;
-      row.querySelector("small").textContent = a.phone + " · " + a.when;
-      row.querySelector("b").textContent = "KES " + a.amount;
-      $("historyList").appendChild(row);
+
+    const checkoutId = result.checkoutRequestID ||
+      result.checkout_request_id ||
+      result.CheckoutRequestID ||
+      result.checkout_id || "";
+
+    const description = result.customerMessage ||
+      result.CustomerMessage ||
+      result.message ||
+      result.responseDescription ||
+      "STK Push request submitted.";
+
+    showMessage(
+      "paymentMessage",
+      description + (checkoutId ? " Checkout ID: " + checkoutId : "") +
+      " Await the customer's M-Pesa confirmation.",
+      "success"
+    );
+
+    $("amount").value = "";
+    await loadHistory();
+  } catch (error) {
+    showMessage("paymentMessage", error.message || "Could not submit payment request.", "error");
+  } finally {
+    button.disabled = false;
+    button.textContent = "SEND M-PESA STK PUSH";
+  }
+});
+
+/* CUSTOMER CONTACTS: LOCAL DEVICE STORAGE */
+function getCustomers() {
+  try { return JSON.parse(localStorage.getItem("gpp_customers") || "[]"); }
+  catch (_) { return []; }
+}
+
+function saveCustomers(items) {
+  localStorage.setItem("gpp_customers", JSON.stringify(items));
+}
+
+function renderCustomers() {
+  const list = $("customerList");
+  const customers = getCustomers();
+  list.replaceChildren();
+
+  if (!customers.length) {
+    const empty = document.createElement("div");
+    empty.className = "empty";
+    empty.textContent = "No customers saved yet.";
+    list.append(empty);
+    return;
+  }
+
+  customers.forEach((customer, index) => {
+    const item = document.createElement("div");
+    item.className = "item";
+
+    const details = document.createElement("div");
+    const name = document.createElement("strong");
+    name.textContent = customer.name;
+    const phone = document.createElement("small");
+    phone.textContent = customer.phone;
+    details.append(name, phone);
+
+    const actions = document.createElement("div");
+    actions.className = "actions";
+
+    const use = document.createElement("button");
+    use.className = "btn secondary";
+    use.type = "button";
+    use.textContent = "USE";
+    use.addEventListener("click", () => {
+      $("customerName").value = customer.name;
+      $("phone").value = customer.phone;
+      switchTab("collect");
+      window.scrollTo({top:0, behavior:"smooth"});
     });
-  };
-  $("saveCustomer").onclick = () => {
-    const phone = normalizePhone($("phone").value);
-    if (!validPhone(phone)) return notice("Enter a valid Safaricom number, for example 0712345678.");
-    if (!customers.some(c => c.phone === phone)) customers.push({name:$("customerName").value.trim(),phone});
-    write("gpp_customers", customers); notice("Customer saved on this device.", "ok"); render();
-  };
-  const details = () => {
-    const phone = normalizePhone($("phone").value), amount = Number($("amount").value);
-    if (!validPhone(phone)) { notice("Enter a valid Safaricom phone number."); return null; }
-    if (!Number.isSafeInteger(amount) || amount < 1 || amount > 250000) { notice("Enter a whole-number amount between KES 1 and KES 250,000."); return null; }
-    return {phone,amount};
-  };
-  $("stkButton").onclick = () => {
-    const d = details(); if (!d) return;
-    notice("STK Push is not connected yet. This screen does not send money requests. Next, connect a secure Cloudflare Worker to Daraja production API.", "warn");
-  };
-  $("chooseStk").onclick = () => { showTab("collect"); $("phone").focus(); notice("Enter the customer's Safaricom number and amount, then use Request STK Push. Live Daraja integration is not connected yet."); };
-  const openUssd = () => {
-    const d = details(); if (!d) return;
-    $("ussdModal").classList.add("show");
-  };
-  $("chooseUssd").onclick = openUssd;
-  $("ussdButton").onclick = openUssd;
-  $("closeModal").onclick = () => $("ussdModal").classList.remove("show");
-  $("openDialer").onclick = () => {
-    $("ussdModal").classList.remove("show");
-    const d = details(); if (!d) return;
-    activity.push({label:"USSD payment assistance opened",phone:d.phone,amount:d.amount,when:new Date().toLocaleString()});
-    write("gpp_activity",activity); render();
-    window.location.href = "tel:*334%23";
-  };
-  render();
-  renderNotifications();
-})();
+
+    const remove = document.createElement("button");
+    remove.className = "btn red";
+    remove.type = "button";
+    remove.textContent = "DELETE";
+    remove.addEventListener("click", () => {
+      const updated = getCustomers();
+      updated.splice(index, 1);
+      saveCustomers(updated);
+      renderCustomers();
+    });
+
+    actions.append(use, remove);
+    item.append(details, actions);
+    list.append(item);
+  });
+}
+
+$("customerForm").addEventListener("submit", event => {
+  event.preventDefault();
+  const name = $("saveName").value.trim();
+  const phone = $("savePhone").value.trim();
+  if (!name || !phone) return;
+
+  const customers = getCustomers();
+  customers.push({name, phone});
+  saveCustomers(customers);
+  $("customerForm").reset();
+  showMessage("customerMessage", "Customer saved on this device.", "success");
+  renderCustomers();
+});
+
+/* PAYMENT HISTORY */
+function extractPayments(data) {
+  if (Array.isArray(data)) return data;
+  for (const key of ["payments", "history", "transactions", "records"]) {
+    if (Array.isArray(data[key])) return data[key];
+  }
+  if (data.data && Array.isArray(data.data)) return data.data;
+  return [];
+}
+
+function paymentStatus(payment) {
+  const status = String(payment.status || "PENDING").toUpperCase();
+  if (status === "PAID" || status === "SUCCESS") return "paid";
+  if (status === "FAILED" || status === "CANCELLED") return "failed";
+  return "pending";
+}
+
+function renderHistory(items) {
+  const list = $("historyList");
+  list.replaceChildren();
+
+  const total = items.length;
+  const paid = items.filter(p => paymentStatus(p) === "paid");
+  const totalPaid = paid.reduce((sum, p) => sum + Number(p.paid_amount || p.amount || 0), 0);
+
+  $("totalTransactions").textContent = total;
+  $("paidTransactions").textContent = paid.length;
+  $("paidAmount").textContent = money(totalPaid);
+
+  if (!items.length) {
+    const empty = document.createElement("div");
+    empty.className = "empty";
+    empty.textContent = "No payment records found.";
+    list.append(empty);
+    return;
+  }
+
+  items.forEach(payment => {
+    const item = document.createElement("div");
+    item.className = "item";
+
+    const details = document.createElement("div");
+    const title = document.createElement("strong");
+    title.textContent = payment.reference || payment.phone || "M-Pesa payment";
+
+    const sub = document.createElement("small");
+    const receipt = payment.mpesa_receipt || payment.mpesa_receipt_number || "";
+    sub.textContent = [
+      payment.phone || payment.paid_phone || "",
+      receipt ? "Receipt: " + receipt : "",
+      payment.created_at || payment.transaction_date || ""
+    ].filter(Boolean).join(" · ");
+
+    details.append(title, sub);
+
+    const right = document.createElement("div");
+    right.style.textAlign = "right";
+
+    const amount = document.createElement("div");
+    amount.className = "amount";
+    amount.textContent = money(payment.paid_amount || payment.amount || 0);
+
+    const badge = document.createElement("span");
+    badge.className = "badge " + paymentStatus(payment);
+    badge.textContent = String(payment.status || "PENDING").toUpperCase();
+
+    right.append(amount, badge);
+    item.append(details, right);
+    list.append(item);
+  });
+}
+
+async function loadHistory() {
+  showMessage("historyMessage", "Loading payment records...");
+  try {
+    const data = await api("/api/mpesa/history");
+    const items = extractPayments(data);
+    renderHistory(items);
+    showMessage("historyMessage", "Payment history refreshed.", "success");
+  } catch (error) {
+    renderHistory([]);
+    showMessage("historyMessage", error.message || "Could not load payment history.", "error");
+  }
+}
+
+$("refreshHistory").addEventListener("click", loadHistory);
+$("refreshAll").addEventListener("click", async () => {
+  await loadHistory();
+  renderCustomers();
+});
+
+/* START */
+renderCustomers();
+checkSession();
 </script>
 </body>
 </html>
