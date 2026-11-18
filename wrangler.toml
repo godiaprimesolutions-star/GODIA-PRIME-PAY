@@ -1,0 +1,12 @@
+name = "godia-prime-pay-api"
+main = "src/index.js"
+compatibility_date = "2026-11-18"
+workers_dev = true
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+run_worker_first = ["/api/*"]
+
+[vars]
+ENVIRONMENT = "development"
