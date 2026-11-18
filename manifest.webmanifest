@@ -1,0 +1,22 @@
+
+{
+  "id": "/",
+  "name": "GODIA PRIME PAY",
+  "short_name": "GODIA PAY",
+  "description": "GODIA PRIME PAY - Private payment and business application",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#071426",
+  "theme_color": "#071426",
+  "lang": "en-KE",
+  "icons": [
+    {
+      "src": "/icons/godia-prime-pay.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
