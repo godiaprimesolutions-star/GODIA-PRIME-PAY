@@ -1,4 +1,3 @@
-HTML
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,12 +5,16 @@ HTML
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#071426">
-  <meta name="mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="GODIA PAY">
+
 <link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" type="image/svg+xml" href="/icons/godia-prime-pay.svg">
+
 <title>GODIA PRIME PAY</title>
+
 <style>
 :root{
   --bg:#071426;--panel:#10233d;--panel2:#142b49;
@@ -32,10 +35,15 @@ button{cursor:pointer}
 header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0 22px}
 .brand{display:flex;align-items:center;gap:12px}
 .logo{
-  width:48px;height:48px;border-radius:15px;display:grid;place-items:center;
-  font-weight:900;font-size:19px;color:white;
+  width:48px;height:48px;border-radius:15px;
+  display:grid;place-items:center;overflow:hidden;
   background:linear-gradient(135deg,var(--blue),var(--purple));
-  box-shadow:0 8px 30px #278cff55
+  box-shadow:0 8px 30px #278cff55;
+  flex-shrink:0
+}
+.logo img{
+  display:block;width:100%;height:100%;
+  object-fit:contain;border-radius:inherit
 }
 .brand h1{font-size:19px;margin:0;letter-spacing:1px}
 .brand small{display:block;color:var(--muted);margin-top:5px}
@@ -47,7 +55,7 @@ header{display:flex;align-items:center;justify-content:space-between;gap:12px;pa
 }
 .login-wrap{max-width:440px;margin:7vh auto}
 .login-top{text-align:center;margin-bottom:24px}
-.login-top .logo{margin:auto;width:66px;height:66px;font-size:25px}
+.login-top .logo{margin:auto;width:66px;height:66px}
 .login-top h2{margin:18px 0 8px;font-size:25px}
 .login-top p,.muted{color:var(--muted);line-height:1.5;font-size:13px}
 h2,h3{margin-top:0}
@@ -112,12 +120,15 @@ footer{text-align:center;color:#758ba6;font-size:11px;padding:28px 10px}
 }
 </style>
 </head>
+
 <body>
 <div class="app">
 
 <header>
   <div class="brand">
-    <div class="logo">GP</div>
+    <div class="logo">
+      <img src="/icons/godia-prime-pay.svg" alt="GODIA PRIME PAY logo">
+    </div>
     <div>
       <h1>GODIA PRIME PAY</h1>
       <small>Private financial workspace</small>
@@ -128,7 +139,9 @@ footer{text-align:center;color:#758ba6;font-size:11px;padding:28px 10px}
 
 <section id="loginScreen" class="login-wrap panel">
   <div class="login-top">
-    <div class="logo">GP</div>
+    <div class="logo">
+      <img src="/icons/godia-prime-pay.svg" alt="GODIA PRIME PAY logo">
+    </div>
     <h2>Welcome Back</h2>
     <p>Sign in to access your private GODIA PRIME PAY workspace.</p>
   </div>
@@ -581,7 +594,7 @@ $("refreshAll").addEventListener("click", async () => {
 renderCustomers();
 checkSession();
 </script>
-  
+
 <script>
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
