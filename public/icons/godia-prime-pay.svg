@@ -1,0 +1,71 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="navy" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#123C78"/>
+      <stop offset="1" stop-color="#020817"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2=".8" y2="1">
+      <stop offset="0" stop-color="#FFF3B0"/>
+      <stop offset=".45" stop-color="#F5C542"/>
+      <stop offset="1" stop-color="#A76508"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#62FFC0"/>
+      <stop offset=".5" stop-color="#00C98D"/>
+      <stop offset="1" stop-color="#007D54"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="512" height="512" rx="112" fill="url(#navy)"/>
+  <rect x="12" y="12" width="488" height="488" rx="100"
+        fill="none" stroke="url(#gold)" stroke-width="9"/>
+
+  <!-- Crown -->
+  <path d="M177 119 L145 77 L196 96 L256 45 L316 96 L367 77 L335 119Z"
+        fill="url(#gold)"/>
+  <path d="M177 120 H335 L322 143 H190Z" fill="#B87912"/>
+
+  <!-- GP monogram -->
+  <path d="M239 157 C158 157 112 204 112 272
+    C112 340 157 380 222 380
+    C273 380 311 352 326 309
+    L267 290 C257 311 243 322 222 322
+    C190 322 171 302 171 272
+    C171 240 192 216 224 216
+    C246 216 262 227 272 244
+    L324 214 C304 177 275 157 239 157Z"
+    fill="url(#gold)"/>
+
+  <path d="M287 162 H352 C406 162 436 191 436 240
+    C436 288 403 318 352 318 H345 V375 H287Z
+    M345 216 V265 H355 C373 265 382 256 382 240
+    C382 224 373 216 355 216Z"
+    fill="url(#gold)"/>
+
+  <!-- Emerald payment swoosh -->
+  <path d="M58 348 C175 416 318 260 450 190
+    C367 305 200 454 58 348Z"
+    fill="url(#green)" stroke="#7BFFD0" stroke-width="4"/>
+
+  <!-- Payment card -->
+  <g transform="rotate(-12 256 278)">
+    <rect x="220" y="240" width="82" height="112" rx="17"
+          fill="#071426" stroke="#FFFFFF" stroke-width="7"/>
+    <rect x="237" y="263" width="48" height="53" rx="9"
+          fill="url(#green)"/>
+    <path d="M242 252 H280" stroke="#FFFFFF"
+          stroke-width="6" stroke-linecap="round"/>
+    <path d="M245 331 H277" stroke="url(#gold)"
+          stroke-width="6" stroke-linecap="round"/>
+  </g>
+
+  <!-- Security shield -->
+  <path d="M390 335 L449 354 V397
+    C449 438 419 461 390 476
+    C361 461 331 438 331 397 V354Z"
+    fill="#071426" stroke="url(#gold)" stroke-width="9"/>
+  <path d="M361 399 L382 420 L423 374"
+    fill="none" stroke="url(#green)" stroke-width="13"
+    stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
