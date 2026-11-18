@@ -73,7 +73,7 @@ XML
           fill="url(#whiteGold)"/>
   </g>
 
-  <!-- Payment card symbol -->
+<!-- Payment card symbol -->
   <g transform="translate(170 337)">
     <rect x="0" y="0" width="172" height="78" rx="15"
           fill="#0A1A2D" stroke="url(#gold)" stroke-width="4"/>
