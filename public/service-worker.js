@@ -1,10 +1,11 @@
 
-const CACHE_NAME = "godia-prime-pay-v1";
+const CACHE_NAME = "godia-prime-pay-v2";
 
 const APP_FILES = [
   "/",
   "/manifest.webmanifest",
-  "/icons/godia-prime-pay.png"
+  "/icons/godia-prime-pay-192.png",
+  "/icons/godia-prime-pay-512.png"
 ];
 
 self.addEventListener("install", event => {
