@@ -1,14 +1,28 @@
-"icons": [
-  {
-    "src": "/icons/godia-prime-pay-192.png",
-    "sizes": "192x192",
-    "type": "image/png",
-    "purpose": "any"
-  },
-  {
-    "src": "/icons/godia-prime-pay-512.png",
-    "sizes": "512x512",
-    "type": "image/png",
-    "purpose": "any"
-  }
-]
+
+{
+  "id": "/",
+  "name": "GODIA PRIME PAY",
+  "short_name": "GODIA PAY",
+  "description": "Private GODIA PRIME PAY financial application",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#071426",
+  "theme_color": "#071426",
+  "lang": "en-KE",
+  "icons": [
+    {
+      "src": "/icons/godia-prime-pay-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/godia-prime-pay-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
