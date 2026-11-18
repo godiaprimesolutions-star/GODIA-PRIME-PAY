@@ -1,1 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#087b48">
+  <meta name="description" content="GODIA PRIME PAY — M-Pesa payment collection">
+  <title>GODIA PRIME PAY</title>
+  <style>
+    :root{--green:#087b48;--green2:#0aa765;--ink:#14251d;--muted:#718078;--line:#e5eee8;--bg:#f4f8f5;--white:#fff;--amber:#a66a00;--shadow:0 12px 34px rgba(10,70,42,.08)}
+    *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+    button,input{font:inherit} button{cursor:pointer}
+    .app{max-width:540px;margin:auto;min-height:100vh;background:var(--bg);padding-bottom:34px}
+    header{background:linear-gradient(135deg,#05683d,#0b9b5b);color:white;padding:22px 20px 25px;border-radius:0 0 26px 26px;box-shadow:var(--shadow)}
+    .top{display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{display:flex;align-items:center;gap:11px}
+    .logo{width:43px;height:43px;border-radius:14px;background:#ffffff20;border:1px solid #ffffff55;display:grid;place-items:center;font-weight:900;font-size:20px}
+    .brand h1{font-size:17px;letter-spacing:.7px;margin:0}.brand p{margin:3px 0 0;color:#d7f6e6;font-size:11px;letter-spacing:1.2px}
+    .secure{font-size:11px;background:#ffffff20;padding:7px 10px;border-radius:30px;white-space:nowrap}
+    .header-actions{display:flex;align-items:center;gap:8px}
+    .icon-btn{position:relative;width:38px;height:38px;border:1px solid #ffffff55;border-radius:13px;background:#ffffff1c;color:white;font-size:18px}
+    .dot{position:absolute;right:7px;top:6px;width:7px;height:7px;background:#ffd166;border:1px solid #087b48;border-radius:50%}
+    .welcome{margin-top:23px}.welcome small{color:#d8f4e5}.welcome h2{font-size:25px;line-height:1.15;margin:6px 0}.welcome p{font-size:13px;color:#d9f4e5;margin:0}
+    .featured{margin-top:17px;background:linear-gradient(110deg,#fff3cf,#ffe2a0);color:#60420b;border-radius:16px;padding:12px 14px;display:flex;align-items:center;gap:11px;box-shadow:0 8px 20px #063d251c}
+    .featured .star{width:34px;height:34px;border-radius:11px;background:#ffffffa8;display:grid;place-items:center;font-size:19px}
+    .featured strong{display:block;font-size:12px}.featured span{display:block;font-size:10px;margin-top:3px;line-height:1.35;color:#795b20}
+    main{padding:18px 16px}.section-title{font-size:15px;font-weight:800;margin:2px 0 12px}
+    .methods{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:20px}
+    .method{background:white;border:1px solid var(--line);border-radius:17px;padding:15px 13px;text-align:left;box-shadow:0 5px 18px rgba(10,70,42,.035);min-height:112px}
+    .method .ico{width:35px;height:35px;border-radius:11px;background:#e8f7ee;display:grid;place-items:center;color:var(--green);font-size:19px;margin-bottom:10px}
+    .method strong{display:block;font-size:14px}.method span{display:block;font-size:11px;color:var(--muted);margin-top:4px;line-height:1.35}
+    .card{background:white;border:1px solid var(--line);border-radius:19px;padding:17px;margin-bottom:15px;box-shadow:0 5px 20px rgba(10,70,42,.035)}
+    label{display:block;font-size:12px;font-weight:700;color:#53635a;margin:14px 0 7px}
+    input{width:100%;border:1px solid #dce8e0;border-radius:12px;padding:14px 13px;background:#fbfdfb;color:var(--ink);outline:none}
+    input:focus{border-color:var(--green);box-shadow:0 0 0 3px #087b4818}
+    .input-row{display:flex;gap:8px}.input-row input{min-width:0;flex:1}
+    .small-btn{border:1px solid #cfe5d7;background:#eff9f2;color:var(--green);border-radius:12px;padding:0 12px;font-weight:750;font-size:12px}
+    .amount-wrap{position:relative}.amount-wrap b{position:absolute;left:13px;top:14px;color:#64746b;font-size:13px}.amount-wrap input{padding-left:55px;font-size:20px;font-weight:800}
+    .primary{width:100%;border:0;border-radius:13px;background:linear-gradient(135deg,var(--green),var(--green2));color:white;padding:15px;font-weight:800;margin-top:17px;box-shadow:0 8px 18px #087b4828}
+    .secondary{width:100%;border:1px solid #cfe5d7;border-radius:13px;background:#eff9f2;color:var(--green);padding:14px;font-weight:800;margin-top:10px}
+    .hint{font-size:11px;color:var(--muted);line-height:1.5;margin:10px 1px 0}
+    .till{display:flex;justify-content:space-between;align-items:center;background:#eaf7ef;border:1px solid #d6eddf;border-radius:14px;padding:12px 13px;margin-top:15px}
+    .till span{font-size:11px;color:#567363}.till strong{font-size:18px;color:var(--green);letter-spacing:1px}
+    .status{display:none;border-radius:12px;padding:12px;font-size:12px;line-height:1.45;margin-top:12px;background:#fff5df;color:#805400;border:1px solid #f4dfae}
+    .notification-panel{display:none;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;margin:0 0 15px;box-shadow:var(--shadow)}
+    .notification-panel.show{display:block}
+    .notification-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+    .notification-head strong{font-size:13px}
+    .notification-head button{border:0;background:transparent;color:var(--green);font-size:11px;font-weight:800}
+    .notification-item{padding:9px 0;border-top:1px solid #edf2ee;font-size:11px;line-height:1.45;color:#58675f}
+    .notification-item b{display:block;color:var(--ink);font-size:12px;margin-bottom:2px}
+    .offline{display:flex;gap:9px;align-items:flex-start;background:#fff8e9;border:1px solid #f3e2b8;color:#795500;padding:12px;border-radius:13px;font-size:11px;line-height:1.45;margin:0 0 16px}
+    .offline b{display:block;font-size:12px;margin-bottom:2px}
+    .list{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid #edf2ee}.list:last-child{border-bottom:0}
+    .avatar{width:36px;height:36px;border-radius:12px;background:#e8f7ee;color:var(--green);display:grid;place-items:center;font-weight:800}
+    .person{display:flex;align-items:center;gap:10px;min-width:0}.person strong{font-size:12px;display:block}.person small{font-size:10px;color:var(--muted)}
+    .empty{color:var(--muted);font-size:12px;text-align:center;padding:18px 5px}
+    .nav{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 0 15px}.nav button{border:1px solid var(--line);background:white;border-radius:12px;padding:10px 5px;color:#5b6b62;font-size:11px;font-weight:700}.nav button.active{background:#eaf7ef;color:var(--green);border-color:#cce8d6}
+    .hidden{display:none!important} footer{text-align:center;padding:10px 20px;color:#89968f;font-size:10px}
+    .modal{position:fixed;inset:0;background:#10251bcc;display:none;align-items:flex-end;justify-content:center;padding:14px;z-index:5}.modal.show{display:flex}.sheet{background:white;border-radius:22px 22px 18px 18px;padding:20px;width:100%;max-width:510px}.sheet h3{margin:0 0 5px}.sheet p{font-size:12px;color:var(--muted);line-height:1.5}
+    @media(min-width:600px){body{padding:20px 0}.app{border-radius:28px;overflow:hidden;box-shadow:0 20px 60px #12332218;min-height:calc(100vh - 40px)}}
+  </style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <div class="top">
+      <div class="brand"><div class="logo">G</div><div><h1>GODIA PRIME PAY</h1><p>SMART PAYMENT COLLECTION</p></div></div>
+      <div class="header-actions">
+        <button class="icon-btn" id="notificationToggle" aria-label="Open notifications" title="Notifications">♧<span class="dot" id="notificationDot"></span></button>
+        <div class="secure">● Secure workspace</div>
+      </div>
+    </div>
+    <div class="welcome"><small>Welcome</small><h2>Collect payments<br>the smarter way.</h2><p>Daraja STK Push and Safaricom M-PESA USSD assistance.</p></div>
+    <div class="featured"><div class="star">★</div><div><strong>YOUR FAVOURITE PAYMENT PARTNER</strong><span>Fast collection tools, customer shortcuts and payment activity in one place.</span></div></div>
+  </header>
+  <main>
+    <div class="notification-panel" id="notificationPanel" aria-live="polite">
+      <div class="notification-head"><strong>Notifications</strong><button id="clearNotifications">Mark as read</button></div>
+      <div id="notificationItems"><div class="notification-item"><b>Welcome to GODIA PRIME PAY</b>Your payment workspace is ready. Connect the secure backend to enable live STK Push and verified payment alerts.</div></div>
+    </div>
+    <div class="offline"><span>●</span><div><b>Offline-ready interface</b>Saved customer details can be viewed offline. Sending STK Push and confirming payments require an internet connection.</div></div>
+    <div class="section-title">Choose payment method</div>
+    <div class="methods">
+      <button class="method" id="chooseStk"><div class="ico">↗</div><strong>Daraja STK Push</strong><span>Send a PIN prompt to the customer's phone when online.</span></button>
+      <button class="method" id="chooseUssd"><div class="ico">⌨</div><strong>M-PESA USSD</strong><span>Open the M-PESA menu on this phone without data bundles.</span></button>
+    </div>
 
+    <div class="nav">
+      <button class="active" data-tab="collect">Collect</button>
+      <button data-tab="customers">Customers</button>
+      <button data-tab="history">History</button>
+    </div>
+
+    <section id="collect">
+      <div class="card">
+        <div class="section-title">New payment request</div>
+        <label for="customerName">Customer name (optional)</label>
+        <input id="customerName" placeholder="Enter customer name" autocomplete="name">
+        <label for="phone">Safaricom phone number</label>
+        <div class="input-row"><input id="phone" placeholder="07XXXXXXXX or 2547XXXXXXXX" inputmode="tel"><button class="small-btn" id="saveCustomer">Save customer</button></div>
+        <label for="amount">Amount</label>
+        <div class="amount-wrap"><b>KES</b><input id="amount" type="number" min="1" step="1" placeholder="0.00" inputmode="decimal"></div>
+        <label for="reference">Payment description (optional)</label>
+        <input id="reference" placeholder="e.g. Goods, invoice or order">
+        <button class="primary" id="stkButton">REQUEST STK PUSH</button>
+        <button class="secondary" id="ussdButton">OPEN M-PESA USSD MENU</button>
+        <div class="status" id="notice" role="status"></div>
+        <div class="till"><div><span>Configured Buy Goods Till</span><br><strong>1692851</strong></div><span>Merchant destination</span></div>
+        <p class="hint">The Till number is displayed for reference. A live STK Push requires your Daraja production configuration and a secure backend. Never enter or share an M-PESA PIN in this app.</p>
+      </div>
+    </section>
+
+    <section id="customers" class="hidden">
+      <div class="card"><div class="section-title">Saved customers</div><div id="customerList" class="empty">No customers saved yet.</div></div>
+    </section>
+    <section id="history" class="hidden">
+      <div class="card"><div class="section-title">Local activity</div><div id="historyList" class="empty">No payment activity recorded yet.</div><p class="hint">This is a local activity log, not proof of payment. Only verified Safaricom callback or reconciliation records should be marked successful.</p></div>
+    </section>
+  </main>
+  <footer>GODIA PRIME PAY · Payment requests are subject to Safaricom services and connectivity.</footer>
+</div>
+
+<div class="modal" id="ussdModal" role="dialog" aria-modal="true" aria-labelledby="ussdTitle">
+  <div class="sheet">
+    <h3 id="ussdTitle">Continue with M-PESA</h3>
+    <p>This opens the M-PESA USSD menu on this phone. USSD does not need mobile data, but it uses Safaricom cellular service. The customer must complete and authorize the payment themselves.</p>
+    <button class="primary" id="openDialer">OPEN *334#</button>
+    <button class="secondary" id="closeModal">Cancel</button>
+  </div>
+</div>
+
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const read = key => { try { return JSON.parse(localStorage.getItem(key) || "[]"); } catch { return []; } };
+  const write = (key, value) => { try { localStorage.setItem(key, JSON.stringify(value)); } catch {} };
+  let customers = read("gpp_customers"), activity = read("gpp_activity");
+  const normalizePhone = value => {
+    let n = value.replace(/[^\d+]/g, "");
+    if (n.startsWith("+")) n = n.slice(1);
+    if (n.startsWith("0")) n = "254" + n.slice(1);
+    return n;
+  };
+  const validPhone = n => /^254(7\d{8}|1\d{8})$/.test(n);
+  let notifications = read("gpp_notifications");
+  if (!notifications.length) {
+    notifications = [{title:"Welcome to GODIA PRIME PAY", body:"Your payment workspace is ready. Live STK Push and verified payment alerts will be enabled after backend integration.", when:new Date().toLocaleString(), unread:true}];
+    write("gpp_notifications", notifications);
+  }
+  const renderNotifications = () => {
+    const unread = notifications.some(n => n.unread);
+    $("notificationDot").style.display = unread ? "block" : "none";
+    $("notificationItems").innerHTML = "";
+    if (!notifications.length) {
+      $("notificationItems").innerHTML = '<div class="notification-item">You are all caught up. New payment and account alerts will appear here.</div>';
+      return;
+    }
+    notifications.slice().reverse().forEach(n => {
+      const item = document.createElement("div"); item.className = "notification-item";
+      const title = document.createElement("b"); title.textContent = n.title;
+      const body = document.createElement("span"); body.textContent = n.body + (n.when ? " · " + n.when : "");
+      item.append(title, body); $("notificationItems").appendChild(item);
+    });
+  };
+  $("notificationToggle").onclick = () => {
+    $("notificationPanel").classList.toggle("show");
+    renderNotifications();
+  };
+  $("clearNotifications").onclick = () => {
+    notifications = notifications.map(n => ({...n, unread:false}));
+    write("gpp_notifications", notifications); renderNotifications();
+  };
+  const addNotification = (title, body) => {
+    notifications.push({title, body, when:new Date().toLocaleString(), unread:true});
+    write("gpp_notifications", notifications); renderNotifications();
+  };
+  const notice = (message, kind="warn") => {
+    $("notice").textContent = message;
+    $("notice").style.display = "block";
+    $("notice").style.background = kind === "ok" ? "#eaf7ef" : "#fff5df";
+    $("notice").style.color = kind === "ok" ? "#08683e" : "#805400";
+  };
+  const showTab = tab => {
+    ["collect","customers","history"].forEach(id => $(id).classList.toggle("hidden", id !== tab));
+    document.querySelectorAll("[data-tab]").forEach(b => b.classList.toggle("active", b.dataset.tab === tab));
+    render();
+  };
+  document.querySelectorAll("[data-tab]").forEach(b => b.addEventListener("click", () => showTab(b.dataset.tab)));
+  const render = () => {
+    $("customerList").innerHTML = customers.length ? "" : '<div class="empty">No customers saved yet.</div>';
+    customers.forEach((c,i) => {
+      const row = document.createElement("div"); row.className = "list";
+      row.innerHTML = '<div class="person"><div class="avatar">👤</div><div><strong></strong><small></small></div></div><button class="small-btn">Select</button>';
+      row.querySelector("strong").textContent = c.name || "Customer";
+      row.querySelector("small").textContent = c.phone;
+      row.querySelector("button").onclick = () => { $("customerName").value = c.name || ""; $("phone").value = c.phone; showTab("collect"); };
+      $("customerList").appendChild(row);
+    });
+    $("historyList").innerHTML = activity.length ? "" : '<div class="empty">No payment activity recorded yet.</div>';
+    activity.slice().reverse().forEach(a => {
+      const row = document.createElement("div"); row.className = "list";
+      row.innerHTML = '<div class="person"><div class="avatar">₭</div><div><strong></strong><small></small></div></div><b></b>';
+      row.querySelector("strong").textContent = a.label;
+      row.querySelector("small").textContent = a.phone + " · " + a.when;
+      row.querySelector("b").textContent = "KES " + a.amount;
+      $("historyList").appendChild(row);
+    });
+  };
+  $("saveCustomer").onclick = () => {
+    const phone = normalizePhone($("phone").value);
+    if (!validPhone(phone)) return notice("Enter a valid Safaricom number, for example 0712345678.");
+    if (!customers.some(c => c.phone === phone)) customers.push({name:$("customerName").value.trim(),phone});
+    write("gpp_customers", customers); notice("Customer saved on this device.", "ok"); render();
+  };
+  const details = () => {
+    const phone = normalizePhone($("phone").value), amount = Number($("amount").value);
+    if (!validPhone(phone)) { notice("Enter a valid Safaricom phone number."); return null; }
+    if (!Number.isSafeInteger(amount) || amount < 1 || amount > 250000) { notice("Enter a whole-number amount between KES 1 and KES 250,000."); return null; }
+    return {phone,amount};
+  };
+  $("stkButton").onclick = () => {
+    const d = details(); if (!d) return;
+    notice("STK Push is not connected yet. This screen does not send money requests. Next, connect a secure Cloudflare Worker to Daraja production API.", "warn");
+  };
+  $("chooseStk").onclick = () => { showTab("collect"); $("phone").focus(); notice("Enter the customer's Safaricom number and amount, then use Request STK Push. Live Daraja integration is not connected yet."); };
+  const openUssd = () => {
+    const d = details(); if (!d) return;
+    $("ussdModal").classList.add("show");
+  };
+  $("chooseUssd").onclick = openUssd;
+  $("ussdButton").onclick = openUssd;
+  $("closeModal").onclick = () => $("ussdModal").classList.remove("show");
+  $("openDialer").onclick = () => {
+    $("ussdModal").classList.remove("show");
+    const d = details(); if (!d) return;
+    activity.push({label:"USSD payment assistance opened",phone:d.phone,amount:d.amount,when:new Date().toLocaleString()});
+    write("gpp_activity",activity); render();
+    window.location.href = "tel:*334%23";
+  };
+  render();
+  renderNotifications();
+})();
+</script>
+</body>
+</html>
