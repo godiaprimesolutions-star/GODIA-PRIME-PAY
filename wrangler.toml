@@ -1,4 +1,5 @@
-name = "godia-prime-pay-api"
+
+name = "ggodiaprimepay"
 main = "src/index.js"
 compatibility_date = "2026-11-18"
 workers_dev = true
@@ -8,5 +9,10 @@ directory = "./public"
 binding = "ASSETS"
 run_worker_first = ["/api/*"]
 
+[[d1_databases]]
+binding = "DB"
+database_name = "godia-prime-pay-db"
+database_id = "93c6d8e0-ee9e-4e65-982a-046aeeff041e"
+
 [vars]
-ENVIRONMENT = "development"
+ENVIRONMENT = "production"
